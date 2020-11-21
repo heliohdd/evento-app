@@ -1,4 +1,4 @@
-package com.heliohdd.eventoapp.models;
+package com.heliohdd.eventoapp.model;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ public class Evento implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
 	private String nome;
@@ -21,11 +21,23 @@ public class Evento implements Serializable{
 	private String data;
 	private String horario;
 	
-	public long getCodigo() {
+	
+	public Evento() {
+	}
+
+	public Evento(Long codigo, String nome, String local, String data, String horario) {
+		this.codigo = codigo;
+		this.nome = nome;
+		this.local = local;
+		this.data = data;
+		this.horario = horario;
+	}
+
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(long codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
